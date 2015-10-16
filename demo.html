@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo</title>
+	<style type="text/css">
+		div {
+			margin: 20px 0;
+		}
+
+		input[type="text"], textarea {
+			border: 2px solid gray;
+		}
+
+		input[type="text"].valid, textarea.valid {
+			border-color: lime;
+		}
+
+		input[type="text"].invalid, textarea.invalid {
+			border-color: red;
+		}
+
+		input[type="text"].valid.untouched, textarea.valid.untouched {
+			border-color: gray;
+		}
+
+		input[type="text"].invalid.untouched, textarea.invalid.untouched {
+			border-color: gray;
+		}
+	</style>
+</head>
+<body>
+	
+	<form>
+		<div>
+			<input type="text" data-required data-minlength="5">
+			Min length 5
+		</div>
+		<div>
+			<input type="text" data-required data-maxlength="5">
+			Max length 5
+		</div>
+		<div>
+			<input type="text" data-required data-pattern=".+\@.+\..+">
+			Pattern matching, matches an email address
+		</div>
+		<div>
+			<input type="text" data-required>
+			Requires a value, any length or characters
+		</div>
+		<div>
+			<select data-required>
+				<option value="">Select a value</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+			</select>
+			One real value is required
+		</div>
+		<div>
+			<input type="checkbox" data-required> This checkbox is required
+		</div>
+		<div>
+			One of these must be checked<br>
+			<input type="checkbox" name="multi_checkbox_1[]" value="1" data-required> 1<br>
+			<input type="checkbox" name="multi_checkbox_1[]" value="2" data-required> 2<br>
+			<input type="checkbox" name="multi_checkbox_1[]" value="3" data-required> 3<br>
+		</div>
+		<div>
+			One must be checked<br>
+			<input type="radio" name="multi_radio" value="1" data-required> 1<br>
+			<input type="radio" name="multi_radio" value="2" data-required> 2<br>
+			<input type="radio" name="multi_radio" value="3" data-required> 3<br>
+		</div>
+
+
+
+
+		<div>
+			<input type="submit" value="Submit">
+		</div>
+	</form>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="jquery.validator.js"></script>
+	<script>
+		$('form').validator();
+	</script>
+</body>
+</html>
